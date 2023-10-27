@@ -133,7 +133,7 @@ class TestAccountService(TestCase):
         response = self.client.get(
             f"{BASE_URL}/{account.id}", content_type="application/json"
         )
-        self.assertEqual(response.status_code,status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         data = response.get_json()
         self.assertEqual(data["name"], account.name)
 
@@ -141,8 +141,7 @@ class TestAccountService(TestCase):
         response = self.client.get(
             f"{BASE_URL}/0", content_type="application/json"
         )
-        self.assertEqual(response.status_code,status.HTTP_404_NOT_FOUND)
-
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
     def test_cors_security(self):
         """It should return a CORS header"""
